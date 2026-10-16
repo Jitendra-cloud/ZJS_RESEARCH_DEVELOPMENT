@@ -1,0 +1,9 @@
+CLASS zjs_cl_bp_xl_data DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zcjs_i_xl_user.
+protected section.
+private section.
+ENDCLASS.
+
+
+
+CLASS ZJS_CL_BP_XL_DATA IMPLEMENTATION.
+ENDCLASS.

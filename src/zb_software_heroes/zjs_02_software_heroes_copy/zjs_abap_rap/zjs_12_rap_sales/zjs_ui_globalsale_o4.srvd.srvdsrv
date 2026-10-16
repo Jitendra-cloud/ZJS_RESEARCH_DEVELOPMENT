@@ -1,0 +1,15 @@
+@EndUserText: {
+  label: 'Service Definition for ZBS_C_SASALE'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZJS_C_SASALE'
+  }
+}
+define service ZJS_UI_GLOBALSALE_O4
+  provider contracts odata_v4_ui {
+  expose ZJS_C_SASALE   as SASale;
+  expose ZJS_C_SAINFO   as SAInfo;
+  expose ZJS_C_SASOLD   as SASold;
+  expose ZJS_C_SASELLER as SASeller;
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'Simple Partner Service'
+define service ZJS_SIMPLE_PARTNER {
+  expose ZJS_C_RAPPARTNER    as Partner;
+  expose ZJS_I_RAPCITYVH;
+  expose ZJS_I_DMOCUSTOMTILE as Tile;
+}

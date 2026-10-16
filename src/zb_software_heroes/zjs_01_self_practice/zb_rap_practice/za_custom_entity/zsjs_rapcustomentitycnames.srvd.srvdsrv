@@ -1,0 +1,4 @@
+@EndUserText.label: 'Custom Entity Service Definition'
+define service ZSJS_RAPCustomEntityCNAMES {
+  expose ZCJS_I_RAPCustomEntityCNames as CNames;
+}

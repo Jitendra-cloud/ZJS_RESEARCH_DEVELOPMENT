@@ -1,0 +1,19 @@
+managed implementation in class zbp_cjs_i_cname unique;
+strict ( 2 );
+
+define behavior for ZCJS_I_CNAME alias Name
+persistent table zdjs_cname
+lock master
+authorization master ( instance )
+{
+  create;
+  update;
+  delete;
+
+  mapping for zdjs_cname
+  {
+    CompanyName = name;
+    Branch = branch;
+    CompanyDescription = description;
+  }
+}

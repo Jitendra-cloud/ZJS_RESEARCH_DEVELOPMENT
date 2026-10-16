@@ -1,0 +1,19 @@
+unmanaged implementation in class zbp_js_api_location unique;
+strict ( 2 );
+
+define behavior for ZJS_R_APILOCATION alias Location
+lock master
+authorization master ( instance )
+{
+  create ( authorization : global );
+
+  field ( readonly : update ) LocationId;
+
+  mapping for zjs_api_target
+    {
+      LocationId          = location_id;
+      LocationName        = location_name;
+      LocationCoordinates = location_coordinates;
+      LocalPeople         = local_people;
+    }
+}

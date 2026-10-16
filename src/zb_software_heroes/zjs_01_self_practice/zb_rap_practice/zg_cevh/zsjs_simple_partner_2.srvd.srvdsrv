@@ -1,0 +1,6 @@
+@EndUserText.label: 'Simple Partner Service'
+@ObjectModel.leadingEntity.name: 'ZCJS_C_RapPartner'
+define service ZSJS_SIMPLE_PARTNER_2 {
+  expose ZCJS_C_RapPartner as Partner;
+  expose ZCJS_I_RAPCityVH;
+}

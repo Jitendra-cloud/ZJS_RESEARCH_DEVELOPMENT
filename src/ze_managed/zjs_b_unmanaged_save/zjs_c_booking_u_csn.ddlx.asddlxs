@@ -1,0 +1,30 @@
+@Metadata.layer: #CORE
+@UI: { headerInfo: { typeName: 'Booking (With Draft)',
+                     typeNamePlural: 'Bookings (With Draft)',
+                     title: { type: #STANDARD, value: 'BookingID' } } }
+
+annotate entity ZJS_C_BOOKING_U_CSN
+    with 
+{
+  @UI.facet: [ { id: 'Booking', purpose: #STANDARD, type: #IDENTIFICATION_REFERENCE, label: 'Booking', position: 10 }
+               //,{ id: 'BookingSupplement', purpose: #STANDARD, type: #LINEITEM_REFERENCE, label: 'Booking Supplement', position: 20, targetElement: '_BookSupplement'} 
+             ]
+
+    @UI.lineItem: [{ position: 10, label: 'Booking ID' }]
+    BookingID;
+    @UI.lineItem: [{ position: 20, label: 'Booking Date' }]
+    BookingDate;
+    @UI.lineItem: [{ position: 30, label: 'Customer ID' }]
+    CustomerID;
+    @UI.lineItem: [{ position: 40, label: 'Airline ID' }]
+    AirlineID;
+    @UI.lineItem: [{ position: 50, label: 'Connection ID' }]
+    ConnectionID;
+    @UI.lineItem: [{ position: 60, label: 'Flight Date' }]
+    FlightDate;
+    @UI.lineItem: [{ position: 70, label: 'Flight Price' }]
+    FlightPrice;
+    @UI.lineItem: [{ position: 100, label: 'Currency Code' }]
+    CurrencyCode;
+    
+}

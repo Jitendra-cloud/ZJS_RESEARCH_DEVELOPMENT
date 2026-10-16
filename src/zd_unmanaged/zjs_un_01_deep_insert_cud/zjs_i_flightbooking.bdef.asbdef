@@ -1,0 +1,29 @@
+unmanaged implementation in class zbp_js_i_flightbooking unique;
+//strict ( 2 );
+
+define behavior for ZJS_I_FlightBooking //alias <alias_name>
+//late numbering
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+ field ( readonly ) booking_id;
+  association _Passengers { create; }
+  action ConfirmTicket result [1] $self;
+}
+
+define behavior for ZJS_I_BookingPassenger //alias <alias_name>
+//late numbering
+lock dependent by _Flightbooking
+authorization dependent by _Flightbooking
+//etag master <field_name>
+{
+  create ;
+  update;
+  delete;
+ field ( readonly ) booking_id;
+  association _Flightbooking;
+}

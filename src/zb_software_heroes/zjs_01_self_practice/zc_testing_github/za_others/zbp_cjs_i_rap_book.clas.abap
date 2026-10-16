@@ -1,0 +1,9 @@
+CLASS zbp_cjs_i_rap_book DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zcjs_i_rap_book.
+protected section.
+private section.
+ENDCLASS.
+
+
+
+CLASS ZBP_CJS_I_RAP_BOOK IMPLEMENTATION.
+ENDCLASS.

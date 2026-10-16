@@ -1,0 +1,96 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Travel',
+    typeNamePlural: 'Travels',
+    description: { type: #STANDARD, value: 'TravelID' } //case-sensitive
+  }
+}
+annotate entity ZJS_R_TRAVEL_PARAM with
+{
+
+  @UI.facet: [ {
+    id: 'idIdentification',
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Travel',
+    position: 10
+  } ]
+
+  @UI: {
+        lineItem:       [ { position: 10, importance: #HIGH } ],
+        identification: [ { position: 10 } ],
+        selectionField: [ { position: 10 } ]
+  }
+  TravelUUID;
+
+  @UI: {
+      lineItem:       [ { position: 10, importance: #HIGH } ],
+      identification: [ { position: 10 } ],
+      selectionField: [ { position: 10 } ]
+  }
+  @Consumption.filter.mandatory: true
+  TravelID;
+
+  @UI: {
+      lineItem:       [ { position: 10, importance: #HIGH } ],
+      identification: [ { position: 10 } ],
+      selectionField: [ { position: 10 } ]
+  }
+  AgencyID;
+
+  @UI: {
+      lineItem:       [ { position: 10, importance: #HIGH } ],
+      identification: [ { position: 10 } ],
+      selectionField: [ { position: 10 } ]
+  }
+  CustomerID;
+
+  @UI: {
+      lineItem:       [ { position: 10, importance: #HIGH } ],
+      identification: [ { position: 10 } ],
+      selectionField: [ { position: 10 } ]
+  }
+  BeginDate;
+
+  @UI: {
+      lineItem:       [ { position: 10, importance: #HIGH } ],
+      identification: [ { position: 10 } ],
+      selectionField: [ { position: 10 } ]
+  }
+  EndDate;
+
+  @UI: {
+      lineItem:       [ { position: 10, importance: #HIGH } ],
+      identification: [ { position: 10 } ],
+      selectionField: [ { position: 10 } ]
+  }
+  BookingFee;
+
+  @UI: {
+      lineItem:       [ { position: 10, importance: #HIGH } ],
+      identification: [ { position: 10 } ],
+      selectionField: [ { position: 10 } ]
+  }
+  TotalPrice;
+
+  @UI: {
+      lineItem:       [ { position: 10, importance: #HIGH } ],
+      identification: [ { position: 10 } ],
+      selectionField: [ { position: 10 } ]
+  }
+  CurrencyCode;
+
+  @UI: {
+        lineItem:       [ { position: 10, importance: #HIGH } ],
+        identification: [ { position: 10 } ],
+        selectionField: [ { position: 10 } ]
+  }
+  Description;
+
+  @UI: {
+      lineItem:       [ { position: 10, importance: #HIGH } ],
+      identification: [ { position: 10 } ],
+      selectionField: [ { position: 10 } ]
+  }
+  OverallStatus;
+}

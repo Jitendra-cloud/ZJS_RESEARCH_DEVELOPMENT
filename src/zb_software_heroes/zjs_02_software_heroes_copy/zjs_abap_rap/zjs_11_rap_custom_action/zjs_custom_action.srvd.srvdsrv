@@ -1,0 +1,4 @@
+@EndUserText.label: 'Custom Action'
+define service ZJS_CUSTOM_ACTION {
+  expose ZJS_R_CUSACTENTITYTP as CustomAction;
+}

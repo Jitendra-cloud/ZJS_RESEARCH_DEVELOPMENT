@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service for Travel app with Parameters'
+define service ZSD_TRAVEL_PARAM {
+  expose ZJS_R_TRAVEL_PARAM as Travel_Param;
+}

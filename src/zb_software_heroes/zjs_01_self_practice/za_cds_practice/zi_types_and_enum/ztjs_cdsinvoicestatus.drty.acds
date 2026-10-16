@@ -1,0 +1,4 @@
+@EndUserText.quickInfo: 'Inv. Status'
+@EndUserText.label: 'Invoice status'
+@EndUserText.heading: 'Invoice status'
+define type ZTJS_CDSInvoiceStatus: abap.char( 1 )

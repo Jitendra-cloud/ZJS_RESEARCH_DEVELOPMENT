@@ -1,0 +1,5 @@
+CLASS zbp_i_travel_u_csn DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zjs_i_travel_u_csn.
+ENDCLASS.
+
+CLASS zbp_i_travel_u_csn IMPLEMENTATION.
+ENDCLASS.

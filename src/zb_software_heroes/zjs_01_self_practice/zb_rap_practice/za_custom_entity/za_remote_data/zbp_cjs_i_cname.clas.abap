@@ -1,0 +1,9 @@
+CLASS zbp_cjs_i_cname DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zcjs_i_cname.
+protected section.
+private section.
+ENDCLASS.
+
+
+
+CLASS ZBP_CJS_I_CNAME IMPLEMENTATION.
+ENDCLASS.

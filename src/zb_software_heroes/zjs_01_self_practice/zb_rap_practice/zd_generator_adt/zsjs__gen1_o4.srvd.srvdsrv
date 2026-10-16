@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZCJS_C_GEN1'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZCJS_C_GEN1'
+  }
+}
+define service ZSJS__GEN1_O4 provider contracts odata_v4_ui {
+  expose ZCJS_C_GEN1 as Gen1;
+}

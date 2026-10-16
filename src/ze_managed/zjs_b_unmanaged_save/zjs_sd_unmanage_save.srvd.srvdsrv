@@ -1,0 +1,6 @@
+@EndUserText.label: 'RAP Application based on Legacy API without UUID keys'
+@ObjectModel.leadingEntity.name: 'ZJS_C_TRAVEL_U_CSN'
+define service Zjs_sd_unmanage_Save {
+  expose ZJS_C_TRAVEL_U_CSN  as Travel_CSN;
+  expose ZJS_C_BOOKING_U_CSN as Booking_CSN;
+}

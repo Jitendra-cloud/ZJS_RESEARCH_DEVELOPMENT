@@ -1,0 +1,7 @@
+@ObjectModel.leadingEntity.name: 'ZC_DMOGen2H01TP'
+define service ZUI_DMOGen2H01 {
+  expose ZC_DMOGEN2H01TP as DMOGen2H;
+  expose ZC_DMOGEN2PTP as DMOGen2P;
+  expose ZCJS_C_GEN2SUBITEMTP as DMOGen2S;
+  expose I_CURRENCY as Currency;
+}

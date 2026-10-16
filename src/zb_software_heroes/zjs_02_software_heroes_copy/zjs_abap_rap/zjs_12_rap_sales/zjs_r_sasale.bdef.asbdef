@@ -1,0 +1,151 @@
+managed implementation in class ZJS_BP_R_SASALE unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZJS_R_SASALE alias SASale
+persistent table zjs_sasale
+extensible
+draft table zjs_sasale_d
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master ( global )
+{
+  field ( readonly )
+  UUID,
+  LocalCreatedBy,
+  LocalCreatedAt,
+  LocalLastChangedBy,
+  LocalLastChangedAt,
+  LastChangedAt;
+
+  field ( numbering : managed )
+  UUID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for zjs_sasale corresponding extensible
+    {
+      UUID               = uuid;
+      PartnerNumber      = partnernumber;
+      SalesDate          = salesdate;
+      SalesVolume        = salesvolume;
+      SalesCurrency      = salescurrency;
+      DifferenceAmount   = differenceamount;
+      DifferenceCurrency = differencecurrency;
+      DifferenceQuantity = differencequantity;
+      DifferenceUnit     = differenceunit;
+      SaleComment        = salecomment;
+      LocalCreatedBy     = local_created_by;
+      LocalCreatedAt     = local_created_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChangedAt = local_last_changed_at;
+      LastChangedAt      = last_changed_at;
+    }
+
+  association _SAInfo { create; with draft; }
+  association _SASold { create; with draft; }
+  association _SASeller { create; with draft; }
+
+}
+
+define behavior for ZJS_R_SAINFO alias SAInfo
+persistent table zjs_sainfo
+extensible
+draft table zjs_sainfo_d
+etag dependent by _SASale
+lock dependent by _SASale
+authorization dependent by _SASale
+{
+  field ( readonly )
+  UUID,
+  ParentUUID;
+
+  field ( numbering : managed )
+  UUID;
+
+
+  update;
+  delete;
+
+  mapping for zjs_sainfo corresponding extensible
+    {
+      UUID            = uuid;
+      ParentUUID      = parent_uuid;
+      Language        = language;
+      TextInformation = text000;
+    }
+
+  association _SASale { with draft; }
+
+}
+
+define behavior for ZJS_R_SASOLD alias SASold
+persistent table zjs_sasold
+extensible
+draft table zjs_sasold_d
+etag dependent by _SASale
+lock dependent by _SASale
+authorization dependent by _SASale
+{
+  field ( readonly )
+  UUID,
+  ParentUUID;
+
+  field ( numbering : managed )
+  UUID;
+
+
+  update;
+  delete;
+
+  mapping for zjs_sasold corresponding extensible
+    {
+      UUID       = uuid;
+      ParentUUID = parent_uuid;
+      MaterialId = materialid;
+    }
+
+  association _SASale { with draft; }
+
+}
+
+define behavior for ZJS_R_SASELLER alias SASeller
+persistent table zjs_saseller
+extensible
+draft table zjs_saseller_d
+etag dependent by _SASale
+lock dependent by _SASale
+authorization dependent by _SASale
+{
+  field ( readonly )
+  UUID,
+  ParentUUID;
+
+  field ( numbering : managed )
+  UUID;
+
+
+  update;
+  delete;
+
+  mapping for zjs_saseller corresponding extensible
+    {
+      UUID       = uuid;
+      ParentUUID = parent_uuid;
+      SellerId   = sellerid;
+      Quota      = quota;
+      Confirmed  = confirmed;
+    }
+
+  association _SASale { with draft; }
+
+}

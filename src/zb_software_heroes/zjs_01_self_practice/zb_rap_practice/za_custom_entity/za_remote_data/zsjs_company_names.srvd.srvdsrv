@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Companyname'
+define service ZSJS_Company_Names {
+  expose ZCJS_C_CNAME as CompanyNames;
+}

@@ -1,0 +1,32 @@
+projection;
+strict ( 2 );
+use draft;
+
+define behavior for ZCJS_C_Currency alias Currency
+{
+  use update;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  use action LoadExcelContent;
+  use function GetDefaultsForExcelPopup;
+
+  side effects
+  {
+    action LoadExcelContent affects entity _Country, field ExcelAttachement;
+  }
+
+  use association _Country { create; with draft; }
+}
+
+define behavior for ZCJS_C_CurrencyCountry alias Country
+{
+  use update;
+  use delete;
+
+  use association _Currency { with draft; }
+}

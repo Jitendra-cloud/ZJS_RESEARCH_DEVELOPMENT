@@ -1,0 +1,9 @@
+CLASS zbp_cjs_r_currency DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zcjs_r_currency.
+protected section.
+private section.
+ENDCLASS.
+
+
+
+CLASS ZBP_CJS_R_CURRENCY IMPLEMENTATION.
+ENDCLASS.

@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service Definition for Currency'
+@ObjectModel.leadingEntity.name: 'ZCJS_C_Currency'
+define service ZSJS_Currency_Service {
+  expose ZCJS_C_Currency        as Currency;
+  expose ZCJS_C_CurrencyCountry as Country;
+}

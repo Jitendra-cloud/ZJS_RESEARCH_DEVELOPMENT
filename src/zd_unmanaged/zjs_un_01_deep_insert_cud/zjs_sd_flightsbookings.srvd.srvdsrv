@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service Defination for Flight bookings'
+@ObjectModel.leadingEntity.name: 'ZJS_C_FlightBooking'
+define service ZJS_SD_FLIGHTSBOOKINGS {
+  expose ZJS_C_FlightBooking    as Flight_Booking;
+  expose ZJS_C_BOOKINGPASSENGER as Booking_Passenger;
+}

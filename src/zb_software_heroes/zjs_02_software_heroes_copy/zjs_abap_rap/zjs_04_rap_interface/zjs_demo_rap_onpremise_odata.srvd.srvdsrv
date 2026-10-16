@@ -1,0 +1,4 @@
+@EndUserText.label: 'Company names'
+define service ZJS_DEMO_RAP_ONPREMISE_ODATA {
+  expose ZJS_RAP_COMPANYNAMES;
+}

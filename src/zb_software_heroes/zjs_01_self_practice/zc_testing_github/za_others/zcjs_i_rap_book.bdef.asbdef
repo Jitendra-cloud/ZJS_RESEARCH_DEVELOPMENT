@@ -1,0 +1,22 @@
+managed implementation in class zbp_cjs_i_rap_book unique;
+strict ( 1 );
+with draft;
+
+define behavior for ZCJS_I_RAP_BOOK //alias <alias_name>
+persistent table zdjs_rap_book
+draft table zdjs_rap_book_d
+lock master total etag Booking_Date
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+}

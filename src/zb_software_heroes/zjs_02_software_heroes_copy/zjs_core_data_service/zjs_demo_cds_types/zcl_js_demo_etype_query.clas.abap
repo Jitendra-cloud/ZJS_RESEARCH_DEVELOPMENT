@@ -1,0 +1,16 @@
+CLASS zcl_js_demo_etype_query DEFINITION
+  PUBLIC FINAL
+  CREATE PUBLIC.
+
+  PUBLIC SECTION.
+    INTERFACES if_rap_query_provider.
+ENDCLASS.
+
+
+
+CLASS ZCL_JS_DEMO_ETYPE_QUERY IMPLEMENTATION.
+
+
+  METHOD if_rap_query_provider~select.
+  ENDMETHOD.
+ENDCLASS.

@@ -1,0 +1,7 @@
+ implementation abstract;
+ define behavior for ZJS_RAP_COMPANYNAMES
+ {
+   create;
+   update;
+   delete;
+ }

@@ -1,0 +1,22 @@
+unmanaged implementation in class zbp_cjs_i_unmanaged unique;
+strict ( 1 );
+
+define behavior for ZCJS_I_Unmanaged alias Unmanaged
+//persistent table zdjs_unmgnd
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly ) TableKey;
+
+  mapping for zdjs_unmgnd
+    {
+      TableKey     = gen_key;
+      Description  = text;
+      CreationDate = cdate;
+    }
+
+}

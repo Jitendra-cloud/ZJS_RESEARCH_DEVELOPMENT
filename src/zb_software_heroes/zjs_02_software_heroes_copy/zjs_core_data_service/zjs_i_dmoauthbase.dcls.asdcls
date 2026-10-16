@@ -1,0 +1,11 @@
+@EndUserText.label: 'Inherit access control'
+@MappingRole: true
+define role ZJS_I_DMOAUTHBASE {
+  grant
+    select
+      on
+        ZJS_I_DMOAUTHBASE
+          where
+            inheriting conditions from entity ZJS_B_DMOAUTHBASE;
+            
+}

@@ -1,0 +1,19 @@
+managed implementation in class zbp_js_demo_company_name unique;
+strict;
+
+define behavior for ZJS_I_DmoCName alias Name
+persistent table zjs_dmo_cname
+lock master
+authorization master ( instance )
+{
+  create;
+  update;
+  delete;
+
+  mapping for zjs_dmo_cname
+  {
+    CompanyName = name;
+    Branch = branch;
+    CompanyDescription = description;
+  }
+}

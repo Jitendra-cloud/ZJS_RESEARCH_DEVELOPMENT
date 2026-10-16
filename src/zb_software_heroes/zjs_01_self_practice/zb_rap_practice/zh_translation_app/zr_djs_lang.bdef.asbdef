@@ -1,0 +1,48 @@
+managed implementation in class ZBP_R_DJS_LANG unique;
+strict ( 2 );
+with draft;
+define behavior for ZR_DJS_LANG alias Language
+persistent table zdjs_lang
+draft table zdjs_lang_d
+etag master LocalLastChanged
+lock master total etag LastChanged
+authorization master ( global )
+
+{
+  field ( readonly )
+  Identification,
+  LocalCreatedBy,
+  LocalLastChangedBy,
+  LocalLastChanged,
+  LastChanged;
+
+  field ( numbering : managed )
+  Identification;
+
+  action TranslateText result [1] $self;
+
+  validation CheckSemanticKey on save { create; update; field SourceLanguage, SourceText; }
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for zdjs_lang
+    {
+      Identification     = identification;
+      SourceLanguage     = source_language;
+      SourceText         = source_text;
+      TargetLanguage     = target_language;
+      TargetText         = target_text;
+      LocalCreatedBy     = local_created_by;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChanged   = local_last_changed;
+      LastChanged        = last_changed;
+    }
+}

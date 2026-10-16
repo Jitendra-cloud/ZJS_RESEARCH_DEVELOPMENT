@@ -1,0 +1,6 @@
+@EndUserText.label: 'Software Component'
+define service ZJS_DCP_SWC {
+  expose ZJS_R_DCPSOFTWARECOMPONENT as SoftwareComponent;
+  expose ZJS_I_DCPTEAMVH;
+  expose ZjS_I_DCPAPPLICATIONVH;
+}

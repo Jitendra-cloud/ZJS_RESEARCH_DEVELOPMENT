@@ -1,0 +1,16 @@
+abstract;
+strict ( 2 );
+with hierarchy;
+
+define behavior for ZCJS_S_RAPCreateInvoice alias Invoice
+{
+
+  field ( suppress ) DummyKey;
+  association _Items;
+
+}
+
+define behavior for ZCJS_S_RAPCREATE_ITEMS alias Items
+{
+  field ( suppress ) DummyKey;
+}

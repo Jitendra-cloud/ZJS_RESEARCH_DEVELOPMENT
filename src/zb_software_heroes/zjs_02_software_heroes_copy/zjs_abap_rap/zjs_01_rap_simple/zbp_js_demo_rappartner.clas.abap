@@ -1,0 +1,9 @@
+CLASS zbp_js_demo_rappartner DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zjs_i_rappartner.
+protected section.
+private section.
+ENDCLASS.
+
+
+
+CLASS ZBP_JS_DEMO_RAPPARTNER IMPLEMENTATION.
+ENDCLASS.

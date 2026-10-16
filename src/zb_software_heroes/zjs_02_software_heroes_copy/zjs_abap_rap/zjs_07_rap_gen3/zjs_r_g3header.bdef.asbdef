@@ -1,0 +1,120 @@
+managed implementation in class ZJS_BP_R_G3HEADER unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZJS_R_G3HEADER alias G3Header
+persistent table zjs_g3header
+extensible
+draft table zjs_g3header_d
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master ( global )
+
+{
+  field ( readonly )
+  Uuid,
+  LocalCreatedBy,
+  LocalCreatedAt,
+  LocalLastChangedBy,
+  LocalLastChangedAt,
+  LastChangedAt;
+
+  field ( numbering : managed )
+  Uuid;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for zjs_g3header corresponding extensible
+    {
+      Uuid               = uuid;
+      DocumentId         = document_id;
+      CustomerNumber     = customer_number;
+      Description        = description;
+      LocalCreatedBy     = local_created_by;
+      LocalCreatedAt     = local_created_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChangedAt = local_last_changed_at;
+      LastChangedAt      = last_changed_at;
+    }
+
+  association _G3Position { create; with draft; }
+
+}
+
+define behavior for ZJS_R_G3POSITION alias G3Position
+persistent table zjs_g3position
+extensible
+draft table zjs_g3position_d
+etag dependent by _G3Header
+lock dependent by _G3Header
+authorization dependent by _G3Header
+
+{
+  field ( readonly )
+  Uuid,
+  ParentUuid;
+
+  field ( numbering : managed )
+  Uuid;
+
+
+  update;
+  delete;
+
+  mapping for zjs_g3position corresponding extensible
+    {
+      Uuid           = uuid;
+      ParentUuid     = parent_uuid;
+      PositionNumber = position_number;
+      PositionText   = position_text;
+      Amount         = amount;
+      Currency       = currency;
+    }
+
+  association _G3Header { with draft; }
+  association _G3Note { create; with draft; }
+
+}
+
+define behavior for ZJS_R_G3NOTE alias G3Note
+persistent table zjs_g3note
+extensible
+draft table zjs_g3note_d
+etag dependent by _G3Header
+lock dependent by _G3Header
+authorization dependent by _G3Header
+
+{
+  field ( readonly )
+  Uuid,
+  ParentUuid,
+  RootUuid;
+
+  field ( numbering : managed )
+  Uuid;
+
+
+  update;
+  delete;
+
+  mapping for zjs_g3note corresponding extensible
+    {
+      Uuid           = uuid;
+      ParentUuid     = parent_uuid;
+      RootUuid       = root_uuid;
+      AdditionalNote = additional_note;
+    }
+
+  association _G3Header { with draft; }
+  association _G3Position { with draft; }
+
+}

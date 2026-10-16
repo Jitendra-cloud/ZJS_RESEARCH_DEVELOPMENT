@@ -1,0 +1,81 @@
+@Metadata.layer: #CORE
+@UI: {
+   headerInfo: {
+     typeName: 'Flight Booking',
+     typeNamePlural: 'FLight Bookings',
+     title:       { value: 'booking_id' },
+     description: { value: 'flight_no' }
+   }
+ }
+@Search.searchable: true
+annotate entity ZJS_C_FlightBooking with
+{
+  @UI.facet: [
+
+    {
+       id               : 'Passengers',
+       label            : 'Passengers Details',
+       type             : #LINEITEM_REFERENCE,
+       position         : 20,
+       targetElement    : '_Passengers'
+      },
+
+
+      {
+        id: 'Flight',
+        purpose: #STANDARD,
+        position: 10,
+        label: 'Flight Details',
+        type: #IDENTIFICATION_REFERENCE
+    }
+    ]
+
+
+  @UI: {
+    lineItem:       [ { position: 10, importance: #HIGH } ,
+   { type: #FOR_ACTION , dataAction: 'ConfirmTicket', label: 'CONFIRM', position: 60  } ],
+    identification: [ { position: 10 }
+   ]
+  }
+  @UI.selectionField: [ { position: 10 } ]
+  @Search.defaultSearchElement: true
+  @UI.fieldGroup: [{ qualifier: 'fgHeader' , position: 10 }]
+  booking_id;
+
+  @UI: {
+    lineItem:       [ { position: 20, importance: #HIGH } ],
+   identification: [ { position: 20 } ]
+  }
+  @UI.selectionField: [ { position: 20 } ]
+  @Search.defaultSearchElement: true
+  @UI.fieldGroup: [{ qualifier: 'fgHeader' , position: 20 }]
+  customer_id;
+
+  @UI: {
+   lineItem:       [ { position: 30, importance: #HIGH } ] ,
+   identification: [ { position: 30 } ]  }
+
+  @Search.defaultSearchElement: true
+  @EndUserText.label:'Flight Number'
+  @UI.selectionField: [ { position: 30 } ]
+  flight_no;
+
+  @UI: {
+    lineItem:       [ { position: 40, importance: #HIGH } ]
+  }
+  @Search.defaultSearchElement: true
+  @UI.selectionField: [ { position: 40 } ]
+  @EndUserText.label:'Booking Date'
+  @UI.fieldGroup: [{ qualifier: 'fgHeader' , position: 40 }]
+  booking_date;
+
+  @UI: {
+    lineItem:       [ { position: 50, importance: #HIGH } ],
+    identification: [ { position: 50 } ]
+  }
+  @UI.selectionField: [ { position: 50 } ]
+  @Search.defaultSearchElement: true
+  @EndUserText.label:'Status'
+  status;
+
+}

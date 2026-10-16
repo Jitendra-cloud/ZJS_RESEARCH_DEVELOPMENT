@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service for Company Names'
+define service ZJS_DEMO_COMPANY_NAMES {
+  expose ZJS_R_RAPCUSTOMCOMPANYNAMES as CompanyNames;
+}

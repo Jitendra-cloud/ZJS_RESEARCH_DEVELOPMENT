@@ -1,0 +1,54 @@
+managed implementation in class zbp_js_demo_rappartner unique;
+strict;
+with draft;
+
+define behavior for ZJS_I_RAPPARTNER alias Partner
+persistent table zjs_dmo_partner
+draft table zjs_dmo_dpartner
+lock master total etag LastChangedAt
+authorization master ( instance )
+late numbering
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  delete ( features : global );
+
+  field ( readonly ) PartnerNumber;
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+
+  draft determine action Prepare
+  {
+    validation validateKeyIsFilled;
+    validation validateCoreData;
+  }
+
+  validation validateKeyIsFilled on save { create; }
+  validation validateCoreData on save { create; field Country, PaymentCurrency; }
+
+  determination fillCurrency on modify { create; update; }
+
+  static action withPopup parameter ZJS_I_PopupEntity;
+  action ( features : instance ) fillEmptyStreets result [1] $self;
+  static action clearAllEmptyStreets;
+  factory action copyLine [1];
+
+  mapping for zjs_dmo_partner
+    {
+      PartnerNumber      = partner;
+      PartnerName        = name;
+      Street             = street;
+      City               = city;
+      Country            = country;
+      PaymentCurrency    = payment_currency;
+      LastChangedAt      = last_changed_at;
+      LastChangedBy      = last_changed_by;
+      CreatedAt          = created_at;
+      CreatedBy          = created_by;
+      LocalLastChangedAt = local_last_changed_at;
+    }
+}

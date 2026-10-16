@@ -1,0 +1,62 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'DMOGen2S', 
+    typeNamePlural: 'DMOGen2Ss', 
+    title: {
+      type: #STANDARD, 
+      label: 'DMOGen2S', 
+      value: 'UuidSubPos'
+    }
+  }, 
+  presentationVariant: [ {
+    sortOrder: [ {
+      by: 'UuidSubPos', 
+      direction: #DESC
+    } ], 
+    visualizations: [ {
+      type: #AS_LINEITEM
+    } ]
+  } ]
+}
+annotate view ZCJS_C_GEN2SUBITEMTP with
+{
+  @UI.facet: [ {
+    id: 'idDMOGen2S', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'DMOGen2S', 
+    position: 10 
+  } ]
+  @UI.hidden: true
+  UuidSubPos;
+  
+  @UI.hidden: true
+  UuidKey;
+  
+  @UI.hidden: true
+  UuidPos;
+  
+  @UI.lineItem: [ {
+    position: 40 , 
+    importance: #HIGH, 
+    label: 'Description'
+  } ]
+  @UI.identification: [ {
+    position: 40 , 
+    label: 'Description'
+  } ]
+  Description;
+  
+  @UI.hidden: true
+  LocalLastChanged;
+  
+  @UI.lineItem: [ {
+    position: 60 , 
+    importance: #HIGH
+  } ]
+  @UI.identification: [ {
+    position: 60 
+  } ]
+  LastChanged;
+}

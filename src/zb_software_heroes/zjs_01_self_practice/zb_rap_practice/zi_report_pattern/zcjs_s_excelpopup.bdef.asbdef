@@ -1,0 +1,10 @@
+abstract;
+
+define behavior for ZCJS_S_ExcelPopup
+{
+
+
+
+  field ( mandatory )  EventComment; //TestRun,
+
+}

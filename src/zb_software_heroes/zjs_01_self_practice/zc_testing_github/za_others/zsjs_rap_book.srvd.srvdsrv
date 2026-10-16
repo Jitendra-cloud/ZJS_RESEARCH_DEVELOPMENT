@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition'
+define service ZSJS_RAP_BOOK {
+  expose ZCJS_I_RAP_BOOK;
+}

@@ -1,0 +1,67 @@
+managed implementation in class zcljs_i_rappartner unique;
+strict;
+with draft;
+
+define behavior for ZCJS_I_RapPartner alias Partner
+persistent table zdjs_partner
+draft table zdjs_d_partner
+lock master total etag LastChangedAt   //------new
+authorization master ( instance )
+//late numbering
+early numbering
+etag master LastChangedAt   //-------new
+{
+  create;
+  update;
+  delete ( features : global );
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+
+  draft determine action Prepare
+  {
+    validation validateKeyIsFilled;
+    validation validateOnFieldLevel;
+  }
+
+  field ( readonly : update  ) PartnerNumber;
+  field ( features : instance ) Street;
+  //field ( numbering : managed ) PartnerNumber;
+
+  //-------------------------------------------VALIDATIONS-----------------------------------------------------------------
+  validation validateKeyIsFilled on save { create; }
+  //  validation validateKeyIsFilled_U on save { update; }
+  //  validation validateOnFieldLevel on save { field Country, PaymentCurrency; }
+  validation validateOnFieldLevel on save { create; field Country, PaymentCurrency; }
+  //-------------------------------------------VALIDATIONS-----------------------------------------------------------------
+
+  //-------------------------------------------DETERMINATIONS--------------------------------------------------------------
+  determination fillCurrency on modify { create; update; }
+  //-------------------------------------------DETERMINATIONS--------------------------------------------------------------
+
+  //-------------------------------------------ACTIONS---------------------------------------------------------------------
+  action ( features : instance ) fillEmptyStreets;
+  action ( features : instance ) fillEmptyStreets_P result [1] $self;
+  static action clearAllEmptyStreets;
+  factory action copyLine [1];
+  static action withPopu parameter ZCJS_I_PopupEntity;
+  //-------------------------------------------ACTIONS---------------------------------------------------------------------
+
+
+
+  mapping for zdjs_partner
+    {
+      PartnerNumber   = partner;
+      PartnerName     = name;
+      Street          = street;
+      City            = city;
+      Country         = country;
+      PaymentCurrency = payment_currency;
+      LastChangedAt   = last_changed_at;
+      LastChangedBy   = last_changed_by;
+      CreatedAt       = created_at;
+      CreatedBy       = created_by;
+    }
+}

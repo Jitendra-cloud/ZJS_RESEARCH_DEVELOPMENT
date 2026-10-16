@@ -1,0 +1,6 @@
+@EndUserText.label: 'CDS Pattern Service'
+@ObjectModel.leadingEntity.name: 'ZJS_C_CDSPatternInvoice'
+define service ZJS_DEMO_PATTERN_CDS {
+  expose ZJS_C_CDSPATTERNINVOICE  as Invoice;
+  expose ZJS_C_CDSPATTERNPOSITION as Position;
+}

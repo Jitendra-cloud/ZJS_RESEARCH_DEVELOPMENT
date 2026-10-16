@@ -1,0 +1,9 @@
+CLASS zbp_cjs_i_unmanaged DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zcjs_i_unmanaged.
+protected section.
+private section.
+ENDCLASS.
+
+
+
+CLASS ZBP_CJS_I_UNMANAGED IMPLEMENTATION.
+ENDCLASS.

@@ -1,0 +1,66 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'DMOGen2P', 
+    typeNamePlural: 'DMOGen2Ps', 
+    title: {
+      type: #STANDARD, 
+      label: 'DMOGen2P', 
+      value: 'UuidPos'
+    }
+  }, 
+  presentationVariant: [ {
+    sortOrder: [ {
+      by: 'UuidPos', 
+      direction: #DESC
+    } ], 
+    visualizations: [ {
+      type: #AS_LINEITEM
+    } ]
+  } ]
+}
+annotate view ZC_DMOGen2PTP with
+{
+  @UI.facet: [ {
+    id: 'idDMOGen2P', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'DMOGen2P', 
+    position: 10 
+  }, 
+  {
+    id: 'idDMOGen2S', 
+    type: #LINEITEM_REFERENCE, 
+    label: 'DMOGen2S', 
+    position: 20 , 
+    targetElement: '_DMOGen2S'
+  } ]
+  @UI.hidden: true
+  UuidPos;
+  
+  @UI.hidden: true
+  UuidKey;
+  
+  @UI.lineItem: [ {
+    position: 30 , 
+    importance: #HIGH, 
+    label: 'Price'
+  } ]
+  @UI.identification: [ {
+    position: 30 , 
+    label: 'Price'
+  } ]
+  Price;
+  
+  @UI.hidden: true
+  LocalLastChanged;
+  
+  @UI.lineItem: [ {
+    position: 60 , 
+    importance: #HIGH
+  } ]
+  @UI.identification: [ {
+    position: 60 
+  } ]
+  LastChanged;
+}

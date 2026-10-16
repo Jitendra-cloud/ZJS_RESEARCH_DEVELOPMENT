@@ -1,0 +1,4 @@
+@EndUserText.label: 'Location API'
+define service ZJS_API_LOCATION_ENDPOINT {
+  expose ZJS_R_APILOCATION as Location;
+}

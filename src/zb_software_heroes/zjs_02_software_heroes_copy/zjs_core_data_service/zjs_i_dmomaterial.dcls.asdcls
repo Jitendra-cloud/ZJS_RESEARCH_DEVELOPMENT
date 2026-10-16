@@ -1,0 +1,11 @@
+@EndUserText.label: 'Authority check for material'
+@MappingRole: true
+define role ZJS_I_DMOMATERIAL {
+  grant 
+    select
+      on
+        ZJS_I_DmoMaterial
+          where
+            ( MaterialNumber ) = aspect pfcg_auth(ZJS_DMOMAT, ZAF_MATNR , ACTVT = '03');
+            
+}

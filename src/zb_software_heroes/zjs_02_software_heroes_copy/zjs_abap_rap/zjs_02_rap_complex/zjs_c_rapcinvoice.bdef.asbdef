@@ -1,0 +1,24 @@
+projection;
+strict ( 1 );
+
+define behavior for ZJS_C_RAPCINVOICE alias Invoice
+{
+  use create;
+  use update;
+  use delete;
+
+  use action sendTestMail;
+//  use action CreateInvoiceDocument;
+// Actual DEEP TABLE PARAMETER not supported in SADL
+//  use action CreateMultipleInvoices;
+
+  use association _Position { create; }
+}
+
+define behavior for ZJS_C_RAPCPosition alias Position
+{
+  use update;
+  use delete;
+
+  use association _Invoice;
+}

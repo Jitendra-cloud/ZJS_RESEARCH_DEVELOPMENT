@@ -1,0 +1,12 @@
+@EndUserText.label: 'Invoice status as Enum'
+define type ZTJS_CDSInvoiceStatusEnum : abap.char(1) enum
+{
+  @EndUserText.label: 'Empty'
+  Empty   = initial;
+  @EndUserText.label: 'Created'
+  Created = 'C';
+  @EndUserText.label: 'Payed'
+  Payed   = 'P';
+  @EndUserText.label: 'Closed'
+  Closed  = 'O';
+}

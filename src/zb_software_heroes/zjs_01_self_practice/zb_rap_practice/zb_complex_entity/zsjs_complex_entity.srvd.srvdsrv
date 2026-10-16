@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Complex Entity'
+define service ZSJS_COMPLEX_ENTITY {
+  expose ZCJS_C_RAPCInvoice as Invoice;
+  expose ZCJS_C_RAPCItems   as Items;
+}

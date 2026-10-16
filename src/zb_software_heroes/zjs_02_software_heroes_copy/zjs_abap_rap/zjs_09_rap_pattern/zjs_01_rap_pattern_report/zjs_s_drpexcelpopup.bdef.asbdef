@@ -1,0 +1,6 @@
+abstract;
+
+define behavior for ZJS_S_DRPEXCELPOPUP
+{
+  field ( mandatory ) EventComment, TestRun;
+}

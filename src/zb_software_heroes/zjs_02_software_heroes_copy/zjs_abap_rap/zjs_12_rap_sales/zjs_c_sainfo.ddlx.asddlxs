@@ -1,0 +1,34 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'UUID'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'UUID'
+annotate view ZJS_C_SAINFO with
+{
+  @UI.facet: [
+    {
+      id: 'idGeneral',
+      label: 'General Information',
+      position: 10 ,
+      type: #IDENTIFICATION_REFERENCE,
+      targetQualifier: 'GENERAL'
+    }
+  ]
+
+  @UI.hidden: true
+  UUID;
+
+  @UI.hidden: true
+  ParentUUID;
+
+  @UI.lineItem: [ { position: 30  } ]
+  @UI.identification: [ { position: 30 , qualifier: 'GENERAL' } ]
+  @EndUserText.label: 'Language'
+  Language;
+
+  @UI.lineItem: [ { position: 40  } ]
+  @UI.identification: [ { position: 40 , qualifier: 'GENERAL' } ]
+  @EndUserText.label: 'Text'
+  TextInformation;
+
+}

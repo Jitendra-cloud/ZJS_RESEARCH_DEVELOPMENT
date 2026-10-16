@@ -1,0 +1,9 @@
+projection;
+strict;
+
+define behavior for ZJS_C_DMOCNAME alias Name
+{
+  use create;
+  use update;
+  use delete;
+}

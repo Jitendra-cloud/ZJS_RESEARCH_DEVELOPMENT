@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_DJS_LANG'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_DJS_LANG'
+  }
+}
+define service ZUI_DJS_LANG_O4 provider contracts odata_v4_ui {
+  expose ZC_DJS_LANG;
+}

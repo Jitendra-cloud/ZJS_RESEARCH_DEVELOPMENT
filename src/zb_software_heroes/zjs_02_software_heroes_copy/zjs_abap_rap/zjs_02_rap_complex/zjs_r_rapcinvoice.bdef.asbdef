@@ -1,0 +1,51 @@
+managed implementation in class zbp_js_rapcinvoice unique;
+strict ( 1 );
+
+define behavior for ZJS_R_RAPCINVOICE alias Invoice
+persistent table zjs_dmo_invoice
+lock master
+authorization master ( instance )
+{
+  create;
+  update;
+  delete;
+
+  field ( readonly : update ) Document;
+
+  action sendTestMail parameter ZJS_I_RAPCMailPopup;
+
+  static action CreateInvoiceDocument deep parameter ZJS_S_RAPCreateInvoice;
+  static action CreateMultipleInvoices deep table parameter ZJS_S_RAPCreateInvoice;
+
+  association _Position { create; }
+  mapping for zjs_dmo_invoice
+    {
+      Document = document;
+      Partner  = partner;
+      DocDate  = doc_date;
+      DocTime  = doc_time;
+    }
+}
+
+define behavior for ZJS_I_RAPCPOSITION alias Position
+persistent table zjs_dmo_position
+lock dependent by _Invoice
+authorization dependent by _Invoice
+{
+  update;
+  delete;
+
+  field ( readonly ) Document;
+  field ( readonly : update ) PositionNumber;
+
+  association _Invoice;
+  mapping for zjs_dmo_position
+    {
+      Document       = document;
+      PositionNumber = pos_number;
+      Material       = material;
+      Price          = price;
+      Quantity       = quantity;
+      Currency       = currency;
+    }
+}

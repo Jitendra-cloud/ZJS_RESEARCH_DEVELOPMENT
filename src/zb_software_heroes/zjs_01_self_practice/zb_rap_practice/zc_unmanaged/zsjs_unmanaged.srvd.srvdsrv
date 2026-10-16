@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for ZCJS_I_UNMANAGED'
+define service ZSJS_UNMANAGED {
+  expose ZCJS_C_Unmanaged as Unmanaged;
+}

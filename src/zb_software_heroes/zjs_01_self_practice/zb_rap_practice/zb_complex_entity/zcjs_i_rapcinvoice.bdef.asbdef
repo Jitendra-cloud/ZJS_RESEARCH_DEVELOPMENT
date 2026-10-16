@@ -1,0 +1,51 @@
+managed implementation in class zbp_cjs_i_rapcinvoice unique;
+strict ( 1 );
+
+define behavior for ZCJS_I_RAPCInvoice alias Invoice
+persistent table zdjs_invoice
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field (  readonly : update ) Document, DocDate;
+  field ( mandatory : create ) Document, DocDate;
+  association _Items { create; }
+
+  //static action CreateInvoiceDocument deep parameter ZCJS_A_CreateInvoice;
+  static action CreateMultipleInvoices deep table parameter ZCJS_S_RAPCreateInvoice ;
+
+  mapping for zdjs_invoice
+    {
+      Document = document;
+      Partner  = partner;
+      DocDate  = doc_date;
+      DocTime  = doc_time;
+    }
+}
+
+define behavior for ZCJS_I_RAPCItems alias Items
+persistent table zdjs_items
+lock dependent by _Invoice
+authorization dependent by _Invoice
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Document;
+  field ( readonly : update ) ItemNumber;
+  association _Invoice;
+
+  mapping for zdjs_items
+    {
+      Document   = document;
+      ItemNumber = pos_number;
+      Material   = material;
+      Price      = price;
+      Quantity   = quantity;
+      Currency   = currency;
+    }
+
+}

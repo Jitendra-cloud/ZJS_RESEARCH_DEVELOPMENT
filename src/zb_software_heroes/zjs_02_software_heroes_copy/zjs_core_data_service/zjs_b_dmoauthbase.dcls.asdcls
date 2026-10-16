@@ -1,0 +1,11 @@
+@EndUserText.label: 'Access Control for ZBS_B_DMOAuthBase'
+@MappingRole: true
+define role ZJS_B_DMOAUTHBASE {
+  grant
+    select
+      on
+        ZJS_B_DMOAUTHBASE
+          where
+            Material LIKE 'F%';
+            
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZBS_R_SASALE'
+@MappingRole: true
+define role ZJS_R_SASALE {
+  grant select on ZJS_R_SASALE
+  where TRUE;
+}

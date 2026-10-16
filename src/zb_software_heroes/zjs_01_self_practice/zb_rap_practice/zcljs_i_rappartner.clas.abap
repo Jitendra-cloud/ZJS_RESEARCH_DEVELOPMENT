@@ -1,0 +1,9 @@
+CLASS zcljs_i_rappartner DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zcjs_i_rappartner.
+protected section.
+private section.
+ENDCLASS.
+
+
+
+CLASS ZCLJS_I_RAPPARTNER IMPLEMENTATION.
+ENDCLASS.

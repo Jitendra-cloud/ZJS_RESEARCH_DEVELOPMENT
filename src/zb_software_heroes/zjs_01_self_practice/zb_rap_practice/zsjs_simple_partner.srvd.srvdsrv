@@ -1,0 +1,4 @@
+@EndUserText.label: 'Simple Partner Service'
+define service ZSJS_Simple_Partner {
+  expose ZCJS_C_RapPartner as Partner;
+}

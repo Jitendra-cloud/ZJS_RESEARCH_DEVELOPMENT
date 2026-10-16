@@ -1,0 +1,28 @@
+unmanaged implementation in class zbp_js_dcp_softwarecomponent unique;
+strict ( 2 );
+
+define behavior for ZJS_R_DCPSOFTWARECOMPONENT alias SWC
+lock master
+authorization master ( instance )
+{
+  update;
+
+  field ( readonly )
+  staging,
+  sc_name,
+  active_branch,
+  avail_on_inst,
+  descr,
+  sc_type_descr;
+
+  static action CreateOutputMessage;
+
+  mapping for zjs_dcp
+    {
+      staging     = staging;
+      sc_name     = sc_name;
+      application = application;
+      information = information;
+      team        = team;
+    }
+}

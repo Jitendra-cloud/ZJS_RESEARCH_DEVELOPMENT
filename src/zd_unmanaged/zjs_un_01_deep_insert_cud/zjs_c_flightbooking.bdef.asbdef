@@ -1,0 +1,24 @@
+projection;
+//strict ( 2 );
+
+define behavior for ZJS_C_FlightBooking //alias <alias_name>
+{
+  use create;
+  use update;
+  use delete;
+
+
+use association _Passengers  { create ; }
+use action ConfirmTicket;
+}
+
+define behavior for ZJS_C_BOOKINGPASSENGER //alias <alias_name>
+
+
+{
+
+ use create ;
+  use update;
+  use delete;
+  use association _Flightbooking ;
+}

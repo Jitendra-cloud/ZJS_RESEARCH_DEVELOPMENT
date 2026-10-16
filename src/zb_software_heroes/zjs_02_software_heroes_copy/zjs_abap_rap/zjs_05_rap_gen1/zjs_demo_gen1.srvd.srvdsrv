@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for ZBS_C_DMOGEN1'
+define service ZJS_DEMO_GEN1 {
+  expose ZJS_C_DMOGEN1 as Simple;
+}

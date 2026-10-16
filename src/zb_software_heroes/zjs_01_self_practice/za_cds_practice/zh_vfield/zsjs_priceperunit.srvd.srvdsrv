@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition'
+define service ZSJS_PricePerUnit {
+  expose ZCJS_C_PricePerUnit;
+}

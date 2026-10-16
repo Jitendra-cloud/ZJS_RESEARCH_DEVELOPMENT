@@ -1,0 +1,119 @@
+managed;
+strict ( 2 );
+with draft;
+define behavior for ZR_DMOGen2H01TP alias DMOGen2H
+implementation in class ZBP_R_DMOGen2H01TP unique
+persistent table ZDJS_GEN2_HEADER
+draft table ZDMOGEN2H00D
+etag master LocalLastChanged
+lock master total etag LastChanged
+authorization master( global )
+
+{
+  field ( readonly )
+   UuidKey,
+   LocalLastChanged,
+   LastChanged;
+
+  field ( numbering : managed )
+   UuidKey;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZDJS_GEN2_HEADER
+  {
+    UuidKey = UUID_KEY;
+    Description = DESCRIPTION;
+    IsActive = IS_ACTIVE;
+    LocalLastChanged = LOCAL_LAST_CHANGED;
+    LastChanged = LAST_CHANGED;
+  }
+
+  association _DMOGen2P { create; with draft; }
+
+  determination CalculateUuidKey on save { create; }
+}
+
+define behavior for ZR_DMOGen2PTP alias DMOGen2P
+implementation in class ZBP_R_DMOGen2PTP unique
+persistent table ZDJS_GEN2_ITEM
+draft table ZDMOGEN2P00D
+etag master LocalLastChanged
+lock dependent by _DMOGen2H
+authorization dependent by _DMOGen2H
+
+{
+  field ( readonly )
+   UuidPos,
+   UuidKey,
+   LocalLastChanged;
+
+  field ( numbering : managed )
+   UuidPos;
+
+
+  update;
+  delete;
+
+  mapping for ZDJS_GEN2_ITEM
+  {
+    UuidPos = UUID_POS;
+    UuidKey = UUID_KEY;
+    Price = PRICE;
+    Currency = CURRENCY;
+    LocalLastChanged = LOCAL_LAST_CHANGED;
+    LastChanged = LAST_CHANGED;
+  }
+
+  association _DMOGen2H { with draft; }
+  association _DMOGen2S { create; with draft; }
+
+  determination CalculateUuidPos on save { create; }
+}
+
+define behavior for ZCJS_R_GEN2SUBITEMTP alias DMOGen2S
+implementation in class ZBPJS_R_DMOGEN2STP unique
+persistent table ZDJS_GEN2_SITEM
+draft table ZDJS_GEN2_DS
+etag master LocalLastChanged
+lock dependent by _DMOGen2H
+authorization dependent by _DMOGen2H
+
+{
+  field ( readonly )
+   UuidSubPos,
+   UuidKey,
+   UuidPos,
+   LocalLastChanged;
+
+  field ( numbering : managed )
+   UuidSubPos;
+
+
+  update;
+  delete;
+
+  mapping for ZDJS_GEN2_SITEM
+  {
+    UuidSubPos = UUID_SUB_POS;
+    UuidKey = UUID_KEY;
+    UuidPos = UUID_POS;
+    Description = DESCRIPTION;
+    LocalLastChanged = LOCAL_LAST_CHANGED;
+    LastChanged = LAST_CHANGED;
+  }
+
+  association _DMOGen2P { with draft; }
+  association _DMOGen2H { with draft; }
+
+  determination CalculateUuidSubPos on save { create; }
+}
